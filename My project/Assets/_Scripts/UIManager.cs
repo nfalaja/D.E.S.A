@@ -1,0 +1,65 @@
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class UIManager : MonoBehaviour
+{
+    public static UIManager Instance { get; private set; }
+
+    [Header("Stats Text")]
+    public TextMeshProUGUI txtEcon;
+    public TextMeshProUGUI txtEnv;
+    public TextMeshProUGUI txtSoc;
+
+    [Header("Boards & Panels")]
+    public TextMeshProUGUI txtObjective;
+    public TextMeshProUGUI txtNotification;
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI txtGameOverDetails;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    public void UpdateStatsUI()
+    {
+        txtEcon.text = "Eko: " + GameManager.Instance.statEkonomi;
+        txtEnv.text = "Ling: " + GameManager.Instance.statLingkungan;
+        txtSoc.text = "Sos: " + GameManager.Instance.statSosial;
+        CheckNotifications();
+    }
+
+    public void UpdateObjectiveUI(int target)
+    {
+        txtObjective.text = "Target Minggu Ini: " + target;
+        CheckNotifications();
+    }
+
+    private void CheckNotifications()
+    {
+        // Logika sederhana papan pemberitahuan
+        int target = GameManager.Instance.currentObjectiveTarget;
+        if (GameManager.Instance.statLingkungan < target)
+            txtNotification.text = "Kampung kita kurang asri!";
+        else if (GameManager.Instance.statSosial < target)
+            txtNotification.text = "Warga kurang berinteraksi!";
+        else if (GameManager.Instance.statEkonomi < target)
+            txtNotification.text = "Kas desa menipis!";
+        else
+            txtNotification.text = "Semua aman terkendali.";
+    }
+
+    public void ShowGameOver(int daysSurvived, int totalStats)
+    {
+        gameOverPanel.SetActive(true);
+        txtGameOverDetails.text = $"Bertahan: {daysSurvived} Hari\nTotal Stats: {totalStats}";
+    }
+
+    // Sambungkan ke Button di Inspector
+    public void OnClickNextDay()
+    {
+        GameManager.Instance.NextDay();
+    }
+}
