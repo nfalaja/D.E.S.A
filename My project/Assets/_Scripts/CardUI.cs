@@ -9,15 +9,23 @@ public class CardUI : MonoBehaviour
     public TextMeshProUGUI txtDuration;
 
     // Menyimpan memori tentang jati diri kartu ini
-    private CardData myData;
+    public CardData myData;
 
-    // Fungsi ini dipanggil oleh sistem saat memunculkan kartu
+    [HideInInspector] public int currentDuration; // Tambahkan baris ini di bawah myData
+
     public void Setup(CardData data)
     {
         myData = data;
+        currentDuration = data.durationDays; // Set umur awal
         txtCardName.text = data.cardName;
         txtCost.text = "Harga Eko: " + data.costEconomy;
-        txtDuration.text = "Durasi: " + data.durationDays + " Hari";
+        UpdateDurationText();
+    }
+
+    // Fungsi baru untuk dipanggil setiap ganti hari
+    public void UpdateDurationText()
+    {
+        txtDuration.text = "Durasi: " + currentDuration + " Hari";
     }
 
     // Sambungkan fungsi ini ke Button di dalam UI Kartu

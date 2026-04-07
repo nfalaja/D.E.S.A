@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 4804196120464102462}
   - component: {fileID: 244651183157733024}
   - component: {fileID: 7800105684370968598}
+  - component: {fileID: 2270532393573932988}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -289,6 +290,19 @@ MonoBehaviour:
   txtCardName: {fileID: 1128467076488338563}
   txtCost: {fileID: 478818942549331287}
   txtDuration: {fileID: 2710269671135002568}
+--- !u!114 &2270532393573932988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583406408956871233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2094f4568e7834c973cee216afc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardDrag
+  cardUI: {fileID: 0}
 --- !u!1 &4335539445005670148
 GameObject:
   m_ObjectHideFlags: 0

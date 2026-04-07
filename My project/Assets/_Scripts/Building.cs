@@ -6,8 +6,8 @@ public class Building : MonoBehaviour
     public BuildingType buildingType;
     public int maxSlots = 3;
 
-    // Simpan kartu beserta sisa durasinya
-    private Dictionary<CardData, int> activeCards = new Dictionary<CardData, int>();
+    // Sekarang menyimpan UI fisiknya, bukan cuma datanya
+    private List<CardUI> placedCards = new List<CardUI>();
 
     private void Start()
     {
@@ -20,14 +20,14 @@ public class Building : MonoBehaviour
             GameManager.Instance.OnDayChanged -= ProcessDayEnd;
     }
 
-    public bool TryPlaceCard(CardData card)
+    public bool TryPlaceCard(CardUI card)
     {
-        if (activeCards.Count >= maxSlots) return false;
+        if (placedCards.Count >= maxSlots) return false;
 
-        if (card.compatibleBuilding == buildingType || card.compatibleBuilding == BuildingType.SemuaKecualiKoperasi)
+        if (card.myData.compatibleBuilding == buildingType || card.myData.compatibleBuilding == BuildingType.SemuaKecualiKoperasi)
         {
-            activeCards.Add(card, card.durationDays);
-            ApplyCardEffects(card, 1); // Tambah stat
+            placedCards.Add(card);
+            ApplyCardEffects(card.myData, 1); // Tambah stat
             return true;
         }
         return false;
@@ -35,34 +35,25 @@ public class Building : MonoBehaviour
 
     private void ProcessDayEnd()
     {
-        List<CardData> cardsToRemove = new List<CardData>();
-        List<CardData> keys = new List<CardData>(activeCards.Keys);
-
-        foreach (var card in keys)
+        // Looping terbalik (dari belakang) karena kita akan menghancurkan data di tengah jalan
+        for (int i = placedCards.Count - 1; i >= 0; i--)
         {
-            activeCards[card]--;
-            if (activeCards[card] <= 0)
+            CardUI card = placedCards[i];
+            card.currentDuration--;
+            card.UpdateDurationText(); // Update visual teks di layar
+
+            if (card.currentDuration <= 0)
             {
-                cardsToRemove.Add(card);
+                ApplyCardEffects(card.myData, -1); // Tarik kembali statnya
+                placedCards.RemoveAt(i);
+                Destroy(card.gameObject); // Hancurkan raga kartunya dari layar
             }
         }
-
-        foreach (var card in cardsToRemove)
-        {
-            RemoveCard(card);
-        }
     }
 
-    private void RemoveCard(CardData card)
+    private void ApplyCardEffects(CardData cardData, int multiplier)
     {
-        ApplyCardEffects(card, -1); // Tarik kembali stat saat kartu hancur
-        activeCards.Remove(card);
-        // Hapus representasi visual UI kartu di sini
-    }
-
-    private void ApplyCardEffects(CardData card, int multiplier)
-    {
-        foreach (var effect in card.effects)
+        foreach (var effect in cardData.effects)
         {
             GameManager.Instance.ModifyStats(effect.statType, effect.amount * multiplier);
         }

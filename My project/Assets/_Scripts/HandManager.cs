@@ -42,4 +42,13 @@ public class HandManager : MonoBehaviour
 
         Debug.Log($"[HAND] {cardData.cardName} masuk ke tangan. Total: {cardsInHand.Count}/{maxHandSize}");
     }
+
+    public void RemoveCardFromHand(CardData cardData)
+    {
+        if (cardsInHand.Contains(cardData))
+        {
+            cardsInHand.Remove(cardData);
+            Debug.Log($"[HAND] Kartu terpakai. Sisa di tangan: {cardsInHand.Count}/{maxHandSize}");
+        }
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     public int currentWeek = 1;
     public int currentObjectiveTarget;
 
+    [Header("Visual Transisi")]
+    public GameObject dayOverlay; // Panel hitam transparan untuk transisi
+    public TextMeshProUGUI txtDayNumber; // Teks "Day 2", "Day 3", dst.
+
     public event Action OnDayChanged;
     public event Action OnGameOver;
 
@@ -27,15 +32,27 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CalculateObjective();
+        GiveInitialCards();
         // Berikan 3 kartu awal di sini (Panggil fungsi dari HandManager)
+    }
+
+    private void GiveInitialCards()
+    {
+        // Cari 3 kartu awal dari list di DraftingManager
+        // Idealnya kamu punya list khusus atau menandai kartu mana yang untuk awal
+        for (int i = 0; i < 3; i++)
+        {
+            if (DraftingManager.Instance.allAvailableCards.Count > i)
+            {
+                HandManager.Instance.AddCardToHand(DraftingManager.Instance.allAvailableCards[i]);
+            }
+        }
     }
 
     public void NextDay()
     {
-        // Koperasi Desa pasif income
         statEkonomi += 10;
 
-        // Cek objektif jika hari ke-7, 14, 21, dst.
         if (currentDay % 7 == 0)
         {
             if (!IsObjectiveMet())
@@ -51,11 +68,8 @@ public class GameManager : MonoBehaviour
         }
 
         currentDay++;
-        OnDayChanged?.Invoke(); // Trigger semua gedung untuk mengurangi durasi kartu
-
-        Debug.Log($"[SISTEM] Hari berganti ke-{currentDay} | Uang Kas Koperasi: {statEkonomi}");
-
-        // Panggil sistem Drafting UI di sini
+        StartCoroutine(ShowDayTransition()); // Picu visual transisi
+        OnDayChanged?.Invoke();
     }
 
     private void CalculateObjective()
@@ -89,5 +103,16 @@ public class GameManager : MonoBehaviour
             case StatType.Sosial: statSosial += amount; break;
         }
         UIManager.Instance.UpdateStatsUI();
+    }
+
+    private System.Collections.IEnumerator ShowDayTransition()
+    {
+        dayOverlay.SetActive(true);
+        txtDayNumber.text = "Day " + currentDay;
+
+        yield return new WaitForSeconds(1.5f); // Layar redup selama 1.5 detik
+
+        dayOverlay.SetActive(false);
+        DraftingManager.Instance.ShowDrafting(); // Baru munculkan drafting setelah transisi selesai
     }
 }
