@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using TMPro;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public event Action OnDayChanged;
     public event Action OnGameOver;
 
+    [HideInInspector] public bool isGameOver = false;
     [HideInInspector] public int currentObjectiveTarget;
 
     private void Awake()
@@ -142,6 +144,27 @@ public class GameManager : MonoBehaviour
 
     private void TriggerGameOver()
     {
+        Debug.Log("[SISTEM] GAME OVER Dicu!");
+
+        // 1. Kunci status game
+        isGameOver = true;
+
+        // 2. Hentikan waktu
+        Time.timeScale = 0f;
+
+        // 3. Bersihkan sisa-sisa UI yang tertinggal
+        if (DraftingManager.Instance != null && DraftingManager.Instance.draftingPanel != null)
+        {
+            DraftingManager.Instance.draftingPanel.SetActive(false);
+        }
+
+        // MATIKAN PAKSA PANEL TRANSISI HARI (Sesuaikan nama variabel 'dayOverlay' dengan milikmu)
+        if (dayOverlay != null)
+        {
+            dayOverlay.SetActive(false);
+        }
+
+        // 4. Munculkan Vonis
         OnGameOver?.Invoke();
         UIManager.Instance.ShowGameOver(currentDay, statEkonomi + statLingkungan + statSosial);
     }
@@ -185,6 +208,11 @@ public class GameManager : MonoBehaviour
 
         ExecuteDailyLogic();
 
+        if (isGameOver)
+        {
+            yield break;
+        }
+
         txtDayNumber.text = "Day " + currentDay;
         
 
@@ -226,5 +254,32 @@ public class GameManager : MonoBehaviour
         // 3. MASUKI HARI ESOK
         currentDay++;
         UIManager.Instance.UpdateStatsUI();
+    }
+
+    // --- PROTOKOL GAME OVER NAVIGATION ---
+
+    public void RetryGame()
+    {
+        Debug.Log("[SISTEM] Memulai ulang permainan...");
+        isGameOver = false;
+        Time.timeScale = 1f; // WAJIB: Cairkan waktu yang beku
+
+        // Memuat ulang Scene yang sedang aktif saat ini secara otomatis
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Debug.Log("[SISTEM] Kembali ke Main Menu...");
+        Time.timeScale = 1f; // WAJIB: Cairkan waktu
+
+        // Ganti "MainMenu" dengan nama Scene main menu buatan temanmu yang presisi
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("[SISTEM] Keluar dari aplikasi.");
+        Application.Quit();
     }
 }
