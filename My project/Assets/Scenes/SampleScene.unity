@@ -3498,6 +3498,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1682818452}
     m_Modifications:
+    - target: {fileID: 478818942549331287, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_fontSize
+      value: 35.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710269671135002568, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_fontSize
+      value: 30.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032383654488738459, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 98.0631
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032383654488738459, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 45.6718
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032383654488738459, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -71.505035
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032383654488738459, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -127.037384
+      objectReference: {fileID: 0}
     - target: {fileID: 3583406408956871233, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
       propertyPath: m_Name
       value: Button
@@ -3581,6 +3605,22 @@ PrefabInstance:
     - target: {fileID: 4754621741068650111, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633765625718247515, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 86.4207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633765625718247515, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 45.673
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633765625718247515, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60.6143
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633765625718247515, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -127.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

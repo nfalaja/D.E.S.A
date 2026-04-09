@@ -60,6 +60,6 @@ public class UIManager : MonoBehaviour
     // Sambungkan ke Button di Inspector
     public void OnClickNextDay()
     {
-        GameManager.Instance.NextDay();
+        GameManager.Instance.TryStartNextDay();
     }
 }

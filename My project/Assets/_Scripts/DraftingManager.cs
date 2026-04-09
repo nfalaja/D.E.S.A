@@ -22,7 +22,7 @@ public class DraftingManager : MonoBehaviour
     private void Start()
     {
         // Berlangganan (Subscribe) ke event pergantian hari
-        GameManager.Instance.OnDayChanged += ShowDrafting;
+        //GameManager.Instance.OnDayChanged += ShowDrafting;
     }
 
     public void ShowDrafting()

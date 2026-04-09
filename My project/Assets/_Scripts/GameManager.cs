@@ -105,14 +105,65 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateStatsUI();
     }
 
+    private bool isTransitioning = false; // Kunci pengaman
+
+    public void TryStartNextDay()
+    {
+        // Jika sedang transisi, blokir semua klik!
+        if (isTransitioning)
+        {
+            Debug.LogWarning("[SISTEM] Sabar! Hari sedang berganti...");
+            return;
+        }
+
+        StartCoroutine(ShowDayTransition());
+    }
+
+    public void OnClickNextDay()
+    {
+        if (isTransitioning) return; // Jika sedang transisi, abaikan klik pemain
+
+        StartCoroutine(ShowDayTransition());
+    }
+
     private System.Collections.IEnumerator ShowDayTransition()
     {
+        isTransitioning = true; // Kunci pintu
+
         dayOverlay.SetActive(true);
         txtDayNumber.text = "Day " + currentDay;
+        
+        ExecuteDailyLogic();
 
         yield return new WaitForSeconds(1.5f); // Layar redup selama 1.5 detik
 
         dayOverlay.SetActive(false);
         DraftingManager.Instance.ShowDrafting(); // Baru munculkan drafting setelah transisi selesai
+
+        isTransitioning = false; // Buka pintu kembali setelah semua selesai
+    }
+
+    private void ExecuteDailyLogic()
+    {
+        statEkonomi += 10; // Income Koperasi
+
+        // Cek Objektif Mingguan
+        if (currentDay % 7 == 0)
+        {
+            if (!IsObjectiveMet())
+            {
+                TriggerGameOver();
+                return;
+            }
+            else
+            {
+                currentWeek++;
+                CalculateObjective();
+            }
+        }
+
+        currentDay++;
+        OnDayChanged?.Invoke(); // Ini untuk update durasi kartu di bangunan
+        UIManager.Instance.UpdateStatsUI();
     }
 }
