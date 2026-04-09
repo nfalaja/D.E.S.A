@@ -151,6 +151,15 @@ public class GameManager : MonoBehaviour
 
         // 2. Hentikan waktu
         Time.timeScale = 0f;
+        int rekorMinggu = PlayerPrefs.GetInt("HighscoreWeek", 0);
+        // 2. Bandingkan dengan pencapaian sekarang
+        if (currentWeek > rekorMinggu)
+        {
+            // Jika pecah rekor, simpan ke memori permanen
+            PlayerPrefs.SetInt("HighscoreWeek", currentWeek);
+            PlayerPrefs.Save(); // Memastikan data tertulis ke storage
+            Debug.Log($"[REKOR] Baru! Minggu {currentWeek} berhasil disimpan.");
+        }
 
         // 3. Bersihkan sisa-sisa UI yang tertinggal
         if (DraftingManager.Instance != null && DraftingManager.Instance.draftingPanel != null)
