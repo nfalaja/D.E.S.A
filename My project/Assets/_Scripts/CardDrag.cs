@@ -6,6 +6,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
     private CanvasGroup canvasGroup;
     [HideInInspector] public CardUI cardUI;
+    [HideInInspector] public bool isLocked = false;
 
     [Header("Visual Efek")]
     public float hoverScale = 1.05f; // Seberapa besar memuai saat di-hover
@@ -14,6 +15,13 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // Referensi untuk sistem Kloning
     private GameObject dragClone;
     private Canvas mainCanvas;
+
+    private void OnDestroy()
+    {
+        // SAFETY GUARD: Jika kartu asli dihancurkan (misal dibuang ke sampah),
+        // seret klonnya ikut mati ke alam baka agar tidak jadi hantu di layar.
+        if (dragClone != null) Destroy(dragClone);
+    }
 
     private void Awake()
     {
@@ -82,6 +90,11 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         transform.localScale = originalScale;
+
+        if (isLocked)
+        {
+            this.enabled = false;
+        }
 
         // Catatan Sistem:
         // Jika kursor saat ini ada di atas "BuildingDropZone", script bangunan tersebut 

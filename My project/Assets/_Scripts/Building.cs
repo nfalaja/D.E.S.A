@@ -6,7 +6,6 @@ public class Building : MonoBehaviour
     public BuildingType buildingType;
     public int maxSlots = 3;
 
-    // Sekarang menyimpan UI fisiknya, bukan cuma datanya
     private List<CardUI> placedCards = new List<CardUI>();
 
     private void Start()
@@ -27,7 +26,11 @@ public class Building : MonoBehaviour
         if (card.myData.compatibleBuilding == buildingType || card.myData.compatibleBuilding == BuildingType.SemuaKecualiKoperasi)
         {
             placedCards.Add(card);
-            ApplyCardEffects(card.myData, 1); // Tambah stat
+
+            // PERUBAHAN MUTLAK 1: 
+            // Kartu TIDAK LAGI memberikan stat instan saat ditaruh.
+            // Pemain harus menunggu pergantian hari untuk "panen".
+
             return true;
         }
         return false;
@@ -35,18 +38,27 @@ public class Building : MonoBehaviour
 
     private void ProcessDayEnd()
     {
-        // Looping terbalik (dari belakang) karena kita akan menghancurkan data di tengah jalan
+        // Looping terbalik karena kita berpotensi menghancurkan kartu di tengah jalan
         for (int i = placedCards.Count - 1; i >= 0; i--)
         {
             CardUI card = placedCards[i];
-            card.currentDuration--;
-            card.UpdateDurationText(); // Update visual teks di layar
 
+            // PERUBAHAN MUTLAK 2: KARTU BEKERJA (PANEN HARIAN)
+            // Hasilkan poin stat SEBELUM umur kartu berkurang
+            ApplyCardEffects(card.myData, 1);
+
+            // Umur berkurang
+            card.currentDuration--;
+            card.UpdateDurationText();
+
+            // PERUBAHAN MUTLAK 3: KARTU HANCUR (TANPA PENALTI)
             if (card.currentDuration <= 0)
             {
-                ApplyCardEffects(card.myData, -1); // Tarik kembali statnya
+                // Tidak ada lagi kode penarikan stat ApplyCardEffects(-1). 
+                // Poin yang sudah dicetak adalah milik pemain selamanya.
+
                 placedCards.RemoveAt(i);
-                Destroy(card.gameObject); // Hancurkan raga kartunya dari layar
+                Destroy(card.gameObject);
             }
         }
     }

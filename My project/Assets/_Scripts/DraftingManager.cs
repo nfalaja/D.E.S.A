@@ -22,7 +22,7 @@ public class DraftingManager : MonoBehaviour
     private void Start()
     {
         // Berlangganan (Subscribe) ke event pergantian hari
-        GameManager.Instance.OnDayChanged += ShowDrafting;
+        //GameManager.Instance.OnDayChanged += ShowDrafting;
     }
 
     public void ShowDrafting()
@@ -79,5 +79,17 @@ public class DraftingManager : MonoBehaviour
             Debug.LogWarning("[DRAFTING] Kas Ekonomi tidak cukup!");
             UIManager.Instance.txtNotification.text = "Uang Kas Tidak Cukup!";
         }
+    }
+
+    // Fungsi untuk melewati fase drafting tanpa membeli apa pun
+    public void SkipDrafting()
+    {
+        Debug.Log("[DRAFTING] Pemain memilih untuk melewati pengambilan kartu.");
+
+        // Langsung tutup panel tanpa syarat uang
+        draftingPanel.SetActive(false);
+
+        // Jika kamu ingin memberi penalti atau pesan kecil:
+        // UIManager.Instance.txtNotification.text = "Hari berlanjut tanpa kartu baru.";
     }
 }
