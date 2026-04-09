@@ -40,6 +40,15 @@ public class HandManager : MonoBehaviour
         // Suntikkan datanya
         newCard.GetComponent<CardUI>().Setup(cardData);
 
+        // --- SUNTIKAN PELUMPUH TOMBOL ---
+        // Cari komponen Button di raga yang baru lahir ini, lalu matikan!
+        UnityEngine.UI.Button tombolKartu = newCard.GetComponent<UnityEngine.UI.Button>();
+        if (tombolKartu != null)
+        {
+            tombolKartu.enabled = false;
+        }
+        // --------------------------------
+
         Debug.Log($"[HAND] {cardData.cardName} masuk ke tangan. Total: {cardsInHand.Count}/{maxHandSize}");
     }
 

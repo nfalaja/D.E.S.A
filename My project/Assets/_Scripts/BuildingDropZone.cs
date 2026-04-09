@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI; // WAJIB ada untuk memodifikasi LayoutElement
 
 public class BuildingDropZone : MonoBehaviour, IDropHandler
 {
-    // Hubungkan ini ke script Building.cs di Inspector
+    [Header("Referensi Logika & Visual")]
     public Building buildingLogic;
+    public Transform miniCardContainer; // Rak khusus di atas bangunan
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -14,25 +16,25 @@ public class BuildingDropZone : MonoBehaviour, IDropHandler
 
             if (draggedCard != null)
             {
-                // Tanya ke logika bangunan: Boleh tidak kartu ini masuk ke sini?
                 if (buildingLogic.TryPlaceCard(draggedCard.cardUI))
                 {
-                    // Sukses masuk!
-                    Debug.Log($"[BANGUNAN] {draggedCard.cardUI.myData.cardName} dipasang ke {buildingLogic.buildingType}");
+                    // 1. Pindahkan parent ke rak
+                    draggedCard.transform.SetParent(miniCardContainer);
 
-                    // Kunci kartu di bangunan ini
-                    draggedCard.transform.SetParent(this.transform);
+                    // 2. Kunci kartu
+                    draggedCard.isLocked = true;
 
-                    // Matikan script drag agar kartu tidak bisa ditarik lagi setelah dipasang
-                    draggedCard.enabled = false;
+                    UnityEngine.UI.Button tombolKartu = draggedCard.GetComponent<UnityEngine.UI.Button>();
+                    if (tombolKartu != null)
+                    {
+                        tombolKartu.enabled = false; // Tombol mati total, tidak bisa memicu pembelian lagi
+                    }
 
-                    // Panggil HandManager untuk menghapus data kartu dari tangan
                     HandManager.Instance.RemoveCardFromHand(draggedCard.cardUI.myData);
                 }
                 else
                 {
                     Debug.LogWarning("[BANGUNAN] Kartu tidak kompatibel atau slot penuh!");
-                    // Kartu otomatis akan kembali ke tangan karena OnEndDrag di CardDrag.cs
                 }
             }
         }

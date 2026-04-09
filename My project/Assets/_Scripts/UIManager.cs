@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI txtGameOverDetails;
 
+    //[Header("UI Objektif")]
+    //public TextMeshProUGUI txtObjective; // Slot untuk teks target di kanvas
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -31,10 +34,15 @@ public class UIManager : MonoBehaviour
         CheckNotifications();
     }
 
-    public void UpdateObjectiveUI(int target)
+    public void UpdateObjectiveUI(int targetScore, bool reqEko, bool reqSos, bool reqLing)
     {
-        txtObjective.text = "Target Minggu Ini: " + target;
-        CheckNotifications();
+        string teksBaru = "<b>Target Minggu Ini:</b>\n";
+
+        if (reqEko) teksBaru += $"- Ekonomi: {targetScore}\n";
+        if (reqSos) teksBaru += $"- Sosial: {targetScore}\n";
+        if (reqLing) teksBaru += $"- Lingkungan: {targetScore}\n";
+
+        txtObjective.text = teksBaru;
     }
 
     private void CheckNotifications()
@@ -62,4 +70,6 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.TryStartNextDay();
     }
+
+
 }

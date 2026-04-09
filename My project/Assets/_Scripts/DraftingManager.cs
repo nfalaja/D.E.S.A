@@ -80,4 +80,16 @@ public class DraftingManager : MonoBehaviour
             UIManager.Instance.txtNotification.text = "Uang Kas Tidak Cukup!";
         }
     }
+
+    // Fungsi untuk melewati fase drafting tanpa membeli apa pun
+    public void SkipDrafting()
+    {
+        Debug.Log("[DRAFTING] Pemain memilih untuk melewati pengambilan kartu.");
+
+        // Langsung tutup panel tanpa syarat uang
+        draftingPanel.SetActive(false);
+
+        // Jika kamu ingin memberi penalti atau pesan kecil:
+        // UIManager.Instance.txtNotification.text = "Hari berlanjut tanpa kartu baru.";
+    }
 }
