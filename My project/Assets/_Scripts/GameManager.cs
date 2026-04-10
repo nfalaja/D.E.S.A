@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using System;
 using TMPro;
 
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     public int statEkonomi = 0;
     public int statLingkungan = 0;
     public int statSosial = 0;
+
+    [Header("Pause Settings")]
+    public bool isPaused = false;
+    public GameObject pausePanel; // Tarik Panel_Pause ke sini nanti
 
     [Header("Game State")]
     public int currentDay = 1;
@@ -151,6 +156,15 @@ public class GameManager : MonoBehaviour
 
         // 2. Hentikan waktu
         Time.timeScale = 0f;
+        int rekorMinggu = PlayerPrefs.GetInt("HighscoreWeek", 0);
+        // 2. Bandingkan dengan pencapaian sekarang
+        if (currentWeek > rekorMinggu)
+        {
+            // Jika pecah rekor, simpan ke memori permanen
+            PlayerPrefs.SetInt("HighscoreWeek", currentWeek);
+            PlayerPrefs.Save(); // Memastikan data tertulis ke storage
+            Debug.Log($"[REKOR] Baru! Minggu {currentWeek} berhasil disimpan.");
+        }
 
         // 3. Bersihkan sisa-sisa UI yang tertinggal
         if (DraftingManager.Instance != null && DraftingManager.Instance.draftingPanel != null)
@@ -281,5 +295,44 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("[SISTEM] Keluar dari aplikasi.");
         Application.Quit();
+    }
+
+    void Update()
+    {
+        // Cek apakah ada keyboard, lalu cek apakah tombol Escape ditekan frame ini
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            // JANGAN izinkan pause jika sedang Game Over atau sedang Transisi Hari
+            if (!isGameOver && !isTransitioning)
+            {
+                TogglePause();
+            }
+        }
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f; // Bekukan waktu
+            pausePanel.SetActive(true);
+            Debug.Log("[SISTEM] Game Dipause.");
+        }
+        else
+        {
+            Time.timeScale = 1f; // Jalankan waktu kembali
+            pausePanel.SetActive(false);
+            Debug.Log("[SISTEM] Game Berlanjut.");
+        }
+    }
+
+    public void ResumeGame()
+    {
+        // Pastikan status kembali normal sebelum lanjut
+        isPaused = false;
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
     }
 }

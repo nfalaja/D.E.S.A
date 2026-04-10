@@ -59,10 +59,17 @@ public class UIManager : MonoBehaviour
             txtNotification.text = "Semua aman terkendali.";
     }
 
-    public void ShowGameOver(int daysSurvived, int totalStats)
+    public void ShowGameOver(int totalDays, int totalStats)
     {
         gameOverPanel.SetActive(true);
-        txtGameOverDetails.text = $"Bertahan: {daysSurvived} Hari\nTotal Stats: {totalStats}";
+        // Ambil rekor tertinggi yang tersimpan
+        int rekorTertinggi = PlayerPrefs.GetInt("HighscoreWeek", 0);
+
+        // Rakit teks detail
+        // Kamu bisa menggunakan \n untuk baris baru agar lebih rapi
+        txtGameOverDetails.text = $"Kamu bertahan selama {totalDays} Hari.\n" +
+                                  $"Total Stat Terakhir: {totalStats}\n" +
+                                  $"<b>Rekor Minggu Tertinggi: Minggu {rekorTertinggi}</b>";
     }
 
     // Sambungkan ke Button di Inspector
