@@ -17,9 +17,6 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI txtGameOverDetails;
 
-    //[Header("UI Objektif")]
-    //public TextMeshProUGUI txtObjective; // Slot untuk teks target di kanvas
-
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -47,7 +44,6 @@ public class UIManager : MonoBehaviour
 
     private void CheckNotifications()
     {
-        // Logika sederhana papan pemberitahuan
         int target = GameManager.Instance.currentObjectiveTarget;
         if (GameManager.Instance.statLingkungan < target)
             txtNotification.text = "Kampung kita kurang asri!";
@@ -62,21 +58,15 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver(int totalDays, int totalStats)
     {
         gameOverPanel.SetActive(true);
-        // Ambil rekor tertinggi yang tersimpan
         int rekorTertinggi = PlayerPrefs.GetInt("HighscoreWeek", 0);
 
-        // Rakit teks detail
-        // Kamu bisa menggunakan \n untuk baris baru agar lebih rapi
         txtGameOverDetails.text = $"Kamu bertahan selama {totalDays} Hari.\n" +
                                   $"Total Stat Terakhir: {totalStats}\n" +
                                   $"<b>Rekor Minggu Tertinggi: Minggu {rekorTertinggi}</b>";
     }
 
-    // Sambungkan ke Button di Inspector
     public void OnClickNextDay()
     {
         GameManager.Instance.TryStartNextDay();
     }
-
-
 }

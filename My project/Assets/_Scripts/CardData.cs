@@ -19,4 +19,6 @@ public class CardData : ScriptableObject
     public int durationDays;
     public BuildingType compatibleBuilding;
     public List<StatEffect> effects;
+
+    public Sprite cardImage;
 }

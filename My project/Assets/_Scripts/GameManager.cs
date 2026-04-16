@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
     {
         CalculateObjective();
         GiveInitialCards();
+
+        isPaused = true;
+        Time.timeScale = 0f;
+        pausePanel.SetActive(true);
         // Berikan 3 kartu awal di sini (Panggil fungsi dari HandManager)
     }
 
@@ -228,7 +232,7 @@ public class GameManager : MonoBehaviour
         }
 
         txtDayNumber.text = "Day " + currentDay;
-        
+
 
         yield return new WaitForSeconds(1.5f); // Layar redup selama 1.5 detik
 
@@ -336,3 +340,4 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
     }
 }
+
