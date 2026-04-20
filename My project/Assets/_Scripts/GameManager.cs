@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
         CalculateObjective();
         GiveInitialCards();
 
-        isPaused = true;
-        Time.timeScale = 0f;
-        pausePanel.SetActive(true);
+        isPaused = false;
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
         // Berikan 3 kartu awal di sini (Panggil fungsi dari HandManager)
     }
 
