@@ -291,6 +291,7 @@ MonoBehaviour:
   txtCardName: {fileID: 1128467076488338563}
   txtCost: {fileID: 478818942549331287}
   txtDuration: {fileID: 2710269671135002568}
+  imgCardIcon: {fileID: 4804196120464102462}
   myData: {fileID: 0}
   currentDuration: 0
 --- !u!114 &2270532393573932988

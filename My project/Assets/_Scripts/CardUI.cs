@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CardUI : MonoBehaviour
@@ -7,6 +8,7 @@ public class CardUI : MonoBehaviour
     public TextMeshProUGUI txtCardName;
     public TextMeshProUGUI txtCost;
     public TextMeshProUGUI txtDuration;
+    public Image imgCardIcon;
 
     public CardData myData;
 
@@ -18,6 +20,12 @@ public class CardUI : MonoBehaviour
         currentDuration = data.durationDays;
         txtCardName.text = data.cardName;
         txtCost.text = "Harga Eko: " + data.costEconomy;
+
+        if (imgCardIcon != null && data.cardImage != null)
+        {
+            imgCardIcon.sprite = data.cardImage;
+        }
+
         UpdateDurationText();
     }
 
