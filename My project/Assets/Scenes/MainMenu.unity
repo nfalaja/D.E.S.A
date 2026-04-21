@@ -154,7 +154,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 1461.5339, y: 389.3342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102772298
 MonoBehaviour:
@@ -176,10 +176,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: About Us
+  m_text: 'Aghna Naufal 5225600100 - Game Designer
+
+    I Putu Satwika Werdi Widagda
+    Karang 5225600112 - Game Programmer
+
+    Zahra'' Adientya Putri 5225600103 -
+    2D Artist
+
+    Kalvin Luna Sinuraya 5225600120 - Game Programmer
+
+    Raditya
+    Pradipta 5225600118 - Sound Enginer'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8c3cb96d2d9ab25459557132257e5dda, type: 2}
+  m_sharedMaterial: {fileID: -7577372689403039020, guid: 8c3cb96d2d9ab25459557132257e5dda, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1038,8 +1049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4.5875244, y: -5.437805}
+  m_SizeDelta: {x: 43.6714, y: 28.4912}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902210935
 MonoBehaviour:
@@ -1054,7 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2145,8 +2156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 118.5, y: 78}
+  m_AnchoredPosition: {x: -26, y: -7.5}
+  m_SizeDelta: {x: 90.4446, y: 78}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2063673696
 MonoBehaviour:
@@ -2213,7 +2224,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: D.E.S.A
+          m_StringArgument: PRODES
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2063673697
