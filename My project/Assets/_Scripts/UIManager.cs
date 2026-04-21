@@ -25,9 +25,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStatsUI()
     {
-        txtEcon.text = "Eko: " + GameManager.Instance.statEkonomi;
-        txtEnv.text = "Ling: " + GameManager.Instance.statLingkungan;
-        txtSoc.text = "Sos: " + GameManager.Instance.statSosial;
+        txtEcon.text = ": " + GameManager.Instance.statEkonomi;
+        txtEnv.text = ": " + GameManager.Instance.statLingkungan;
+        txtSoc.text = ": " + GameManager.Instance.statSosial;
         CheckNotifications();
     }
 
@@ -46,13 +46,13 @@ public class UIManager : MonoBehaviour
     {
         int target = GameManager.Instance.currentObjectiveTarget;
         if (GameManager.Instance.statLingkungan < target)
-            txtNotification.text = "Kampung kita kurang asri!";
+            txtNotification.text = "Kampung Kurang Asri!";
         else if (GameManager.Instance.statSosial < target)
-            txtNotification.text = "Warga kurang berinteraksi!";
+            txtNotification.text = "Warga Kurang Berinteraksi!";
         else if (GameManager.Instance.statEkonomi < target)
-            txtNotification.text = "Kas desa menipis!";
+            txtNotification.text = "Kas Desa Menipis!";
         else
-            txtNotification.text = "Semua aman terkendali.";
+            txtNotification.text = "Semua Aman Terkendali.";
     }
 
     public void ShowGameOver(int totalDays, int totalStats)
