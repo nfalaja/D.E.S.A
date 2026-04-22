@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: 81e3d043b2352414c83dd6f6974ab297
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - txtCardName: {instanceID: 0}
+  - txtCost: {instanceID: 0}
+  - txtDuration: {instanceID: 0}
+  - imgCardIcon: {instanceID: 0}
+  - myData: {instanceID: 0}
+  - textContainer: {fileID: 2988765073451704503, guid: e9b5d8ea0295bd448854393ef60ed0af, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

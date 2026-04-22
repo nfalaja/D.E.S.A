@@ -294,6 +294,7 @@ MonoBehaviour:
   imgCardIcon: {fileID: 4804196120464102462}
   myData: {fileID: 0}
   currentDuration: 0
+  textContainer: {fileID: 0}
 --- !u!114 &2270532393573932988
 MonoBehaviour:
   m_ObjectHideFlags: 0

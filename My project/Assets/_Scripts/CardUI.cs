@@ -29,6 +29,16 @@ public class CardUI : MonoBehaviour
         UpdateDurationText();
     }
 
+    [Header("Visual Settings")]
+    public GameObject textContainer;
+
+    public void SetTextVisibility(bool isVisible)
+    {
+        if (txtCardName != null) txtCardName.enabled = isVisible;
+        if (txtCost != null) txtCost.enabled = isVisible;
+        if (txtDuration != null) txtDuration.enabled = isVisible;
+    }
+
     public void UpdateDurationText()
     {
         txtDuration.text = "Durasi: " + currentDuration + " Hari";
