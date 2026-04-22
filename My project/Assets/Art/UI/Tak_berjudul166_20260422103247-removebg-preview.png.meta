@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c5713eb1e4f340d4a984f8a89f5de811
+guid: 239523ae795e8ca4d9fa08d51cada520
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2095698930461577865
-    second: _storage_emulated_0_Pictures_Tak berjudul128_20260409233305 (1)_0
+      213: -4882464496332609116
+    second: Tak_berjudul166_20260422103247-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _storage_emulated_0_Pictures_Tak berjudul128_20260409233305 (1)_0
+      name: Tak_berjudul166_20260422103247-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 798
-        y: 2362
-        width: 4548
-        height: 3904
+        x: 18
+        y: 156
+        width: 461
+        height: 184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77debad1de49ae2e0800000000000000
-      internalID: -2095698930461577865
+      spriteID: 4a963a3b8600e3cb0800000000000000
+      internalID: -4882464496332609116
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      _storage_emulated_0_Pictures_Tak berjudul128_20260409233305 (1)_0: -2095698930461577865
+      Tak_berjudul166_20260422103247-removebg-preview_0: -4882464496332609116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
