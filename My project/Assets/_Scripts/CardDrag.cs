@@ -45,7 +45,12 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup.alpha = 0.4f;
         canvasGroup.blocksRaycasts = false;
 
+        if (cardUI != null) cardUI.SetTextVisibility(false);
+
         dragClone = Instantiate(gameObject, mainCanvas.transform);
+
+        CardUI cloneUI = dragClone.GetComponent<CardUI>();
+        if (cloneUI != null) cloneUI.SetTextVisibility(true);
 
         Destroy(dragClone.GetComponent<CardDrag>());
 
@@ -77,7 +82,12 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         if (isLocked)
         {
+            if (cardUI != null) cardUI.SetTextVisibility(false);
             this.enabled = false;
+        }
+        else
+        {
+            if (cardUI != null) cardUI.SetTextVisibility(true);
         }
     }
 }
