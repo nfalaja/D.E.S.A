@@ -34,10 +34,9 @@ public class CardUI : MonoBehaviour
 
     public void SetTextVisibility(bool isVisible)
     {
-        if (textContainer != null)
-        {
-            textContainer.SetActive(isVisible);
-        }
+        if (txtCardName != null) txtCardName.enabled = isVisible;
+        if (txtCost != null) txtCost.enabled = isVisible;
+        if (txtDuration != null) txtDuration.enabled = isVisible;
     }
 
     public void UpdateDurationText()
