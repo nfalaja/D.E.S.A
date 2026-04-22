@@ -699,13 +699,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d72bd4842d6b20d4192d01dbc32e381c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.702
+  m_Volume: 0.885
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 144
+  Priority: 35
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4629,8 +4629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 836.16394, y: -249.23486}
-  m_SizeDelta: {x: 165.1774, y: 225.5818}
+  m_AnchoredPosition: {x: 828, y: -225.96}
+  m_SizeDelta: {x: 179.8154, y: 281.901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703549806
 MonoBehaviour:
@@ -4758,7 +4758,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 4
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5856,7 +5856,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f27aa368d1e3bbe40b8149a2b19a0169, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6069,7 +6069,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 260aeee40d01f6f4c9c9461263b17591, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.702
   m_Pitch: 1
   Loop: 1
   Mute: 0
