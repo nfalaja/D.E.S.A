@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e4a30482089ab4999825f194c0ed5c, type: 3}
   m_Name: Kartu_L05
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  cardName: Subsidi Panel Surya
-  costEconomy: 30
+  cardName: Perawatan Taman Bunga
+  costEconomy: 20
   durationDays: 5
   compatibleBuilding: 1
   effects:
   - statType: 0
-    amount: -20
+    amount: -10
   - statType: 1
-    amount: 30
+    amount: 20
   - statType: 2
-    amount: 5
-  cardImage: {fileID: 2202575335997893618, guid: ce112f94202bf40468e09b7243c7347f, type: 3}
+    amount: 10
+  cardImage: {fileID: 7157561037332017152, guid: 1acfb306769e03d44ab39e1a872d3456, type: 3}

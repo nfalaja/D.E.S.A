@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Kartu_E01
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   cardName: Izin Grosir Plastik
-  costEconomy: 5
-  durationDays: 3
+  costEconomy: 10
+  durationDays: 4
   compatibleBuilding: 2
   effects:
   - statType: 0
-    amount: 20
+    amount: 30
   - statType: 1
-    amount: -15
-  cardImage: {fileID: -3219671168062513952, guid: f5c0ce7c6efef9b478dfe6c55815a1a2, type: 3}
+    amount: -20
+  - statType: 2
+    amount: -5
+  cardImage: {fileID: 7028616704906629411, guid: c1d41ad0fda6e27489d48d6cb36997fb, type: 3}

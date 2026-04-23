@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e4a30482089ab4999825f194c0ed5c, type: 3}
+  m_Name: Kartu_S07
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  cardName: Lomba 17an
+  costEconomy: 10
+  durationDays: 0
+  compatibleBuilding: 1
+  effects:
+  - statType: 0
+    amount: -10
+  - statType: 1
+    amount: -5
+  - statType: 2
+    amount: 15
+  cardImage: {fileID: 4164744761163438241, guid: d9181f28732aaf34a9683a0f50af0b39, type: 3}

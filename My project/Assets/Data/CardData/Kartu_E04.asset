@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e4a30482089ab4999825f194c0ed5c, type: 3}
   m_Name: Kartu_E04
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  cardName: Promo Diskon Gila
-  costEconomy: 20
-  durationDays: 2
+  cardName: Bahan Baku Lokal
+  costEconomy: 10
+  durationDays: 4
   compatibleBuilding: 2
   effects:
   - statType: 0
-    amount: 25
-  - statType: 1
-    amount: -10
+    amount: 15
   - statType: 2
     amount: 5
-  cardImage: {fileID: 360939956100562171, guid: 12463c50ae3030744a53a714c9f2007e, type: 3}
+  - statType: 1
+    amount: -5
+  cardImage: {fileID: 8288426215254106694, guid: 29b6227b1793ba14eb7541e35837cde8, type: 3}

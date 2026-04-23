@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e4a30482089ab4999825f194c0ed5c, type: 3}
   m_Name: Kartu_S04
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  cardName: Razia Sampah Liar
+  cardName: Festival Panen Raya
   costEconomy: 15
   durationDays: 1
-  compatibleBuilding: 3
+  compatibleBuilding: 1
   effects:
   - statType: 0
-    amount: -10
+    amount: 15
   - statType: 1
-    amount: 20
-  - statType: 2
     amount: -15
-  cardImage: {fileID: 3859744212751194994, guid: b1adeccb6438af24f98e7fb927fed9bf, type: 3}
+  - statType: 2
+    amount: -10
+  cardImage: {fileID: 6894999169920593895, guid: 67761e4c9559957418e492649076f4af, type: 3}
