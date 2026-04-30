@@ -441,6 +441,10 @@ MonoBehaviour:
   cardContainer: {fileID: 1682818452}
   cardUIPrefab: {fileID: 3583406408956871233, guid: 30bd00d567cf6364587708eb9234ae2f, type: 3}
   allAvailableCards:
+  - {fileID: 11400000, guid: 1a224fdd74bd00240af853bbc698f3aa, type: 2}
+  - {fileID: 11400000, guid: 909295fa725bb8e4baf43abd5c0e0402, type: 2}
+  - {fileID: 11400000, guid: cfa878f1d2999954da7ad6ccf6ed9a99, type: 2}
+  - {fileID: 11400000, guid: 018eb1f67a9ae44438e1d757053ec33d, type: 2}
   - {fileID: 11400000, guid: d5ce6c761d4ea9f42a099363da83591d, type: 2}
   - {fileID: 11400000, guid: 5c2f7ad182142ed4586ea894aad1bec5, type: 2}
   - {fileID: 11400000, guid: 47f74b7ef7379f14197b632461b34191, type: 2}
@@ -452,8 +456,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3456acb53c6422a438a578d1ffd942b1, type: 2}
   - {fileID: 11400000, guid: 52f8d727c83c96149ab2dd64216d13f3, type: 2}
   - {fileID: 11400000, guid: d360d1139200c0947acdb2a8c5e56465, type: 2}
+  - {fileID: 11400000, guid: bce6d2330a1e3ba4cb7e0e3b233877af, type: 2}
+  - {fileID: 11400000, guid: 7a5d646ee1b97e644998c77865278a38, type: 2}
   - {fileID: 11400000, guid: 23312f980b75a3248833ebe34cc46cec, type: 2}
   - {fileID: 11400000, guid: f4c7220e9eb40a14c8dca56a3d372e8f, type: 2}
+  - {fileID: 11400000, guid: b68d04c42b5e29c499bb370c3d44a0c7, type: 2}
+  - {fileID: 11400000, guid: 25f8a91ed56c0b04298f7ca909bebead, type: 2}
   - {fileID: 11400000, guid: 323b96ceb172e3947b297de187d09ac1, type: 2}
   - {fileID: 11400000, guid: cb216fb6911e5044880e821e9a0de368, type: 2}
   - {fileID: 11400000, guid: 9e91242085b1e1a4092527784899e71b, type: 2}
