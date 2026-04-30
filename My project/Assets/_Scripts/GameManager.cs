@@ -328,7 +328,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1f; // Jalankan waktu kembali
             pausePanel.SetActive(false);
-            Debug.Log("[SISTEM] Game Berlanjut.");
+            Debug.Log("[SISTEM] Game Berlanjut");
         }
     }
 
