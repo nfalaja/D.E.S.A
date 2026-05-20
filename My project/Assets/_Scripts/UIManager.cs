@@ -16,11 +16,24 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI txtNotification;
     public GameObject gameOverPanel;
     public TextMeshProUGUI txtGameOverDetails;
+    public GameObject papanOBJ; // Panel yang show/hide
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        papanOBJ.SetActive(false); // Sembunyikan saat game mulai
+    }
+
+    // Dipanggil oleh Btn_OBJ
+    public void TogglePapanOBJ()
+    {
+        bool sedangAktif = papanOBJ.activeSelf;
+        papanOBJ.SetActive(!sedangAktif);
     }
 
     public void UpdateStatsUI()
@@ -40,6 +53,7 @@ public class UIManager : MonoBehaviour
         if (reqLing) teksBaru += $"- Lingkungan: {targetScore}\n";
 
         txtObjective.text = teksBaru;
+        papanOBJ.SetActive(false); // Auto-tutup saat minggu baru
     }
 
     private void CheckNotifications()
