@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 8e951deed8fa9c6468129a00a4d30a62
   - enabled: 1
+    path: Assets/Scenes/Cutscane.unity
+    guid: 593255d6c18db874ead1235f75439fb5
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 08e8fd27a87117b4db2b445d60ef0e7b
   m_configObjects: {}
