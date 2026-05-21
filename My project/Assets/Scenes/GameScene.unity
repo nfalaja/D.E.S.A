@@ -493,19 +493,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 018eb1f67a9ae44438e1d757053ec33d, type: 2}
   - {fileID: 11400000, guid: d5ce6c761d4ea9f42a099363da83591d, type: 2}
   - {fileID: 11400000, guid: 5c2f7ad182142ed4586ea894aad1bec5, type: 2}
-  - {fileID: 11400000, guid: 47f74b7ef7379f14197b632461b34191, type: 2}
+  - {fileID: 11400000, guid: 423f362b07edaab46ab84c35e4d39c67, type: 2}
   - {fileID: 11400000, guid: 56186326da2f30741b04cfa92a7ad14b, type: 2}
   - {fileID: 11400000, guid: d367cb1e4554dd74d885638a10ee59d2, type: 2}
   - {fileID: 11400000, guid: 60bcd9e079778c54290699759d335506, type: 2}
   - {fileID: 11400000, guid: 392f516b5bf229446871c7cc262084d2, type: 2}
-  - {fileID: 11400000, guid: 4ecf890f4af2d9c44b872aad58172685, type: 2}
+  - {fileID: 11400000, guid: 61cfa2fd0429ed04386a2288e1bef26a, type: 2}
   - {fileID: 11400000, guid: 3456acb53c6422a438a578d1ffd942b1, type: 2}
   - {fileID: 11400000, guid: 52f8d727c83c96149ab2dd64216d13f3, type: 2}
   - {fileID: 11400000, guid: d360d1139200c0947acdb2a8c5e56465, type: 2}
   - {fileID: 11400000, guid: bce6d2330a1e3ba4cb7e0e3b233877af, type: 2}
   - {fileID: 11400000, guid: 7a5d646ee1b97e644998c77865278a38, type: 2}
-  - {fileID: 11400000, guid: 23312f980b75a3248833ebe34cc46cec, type: 2}
-  - {fileID: 11400000, guid: f4c7220e9eb40a14c8dca56a3d372e8f, type: 2}
+  - {fileID: 11400000, guid: 8b9279909110e5c429d6164e919ba23f, type: 2}
+  - {fileID: 11400000, guid: e181e6c4c0168344c96fe40e3d4eb466, type: 2}
   - {fileID: 11400000, guid: b68d04c42b5e29c499bb370c3d44a0c7, type: 2}
   - {fileID: 11400000, guid: 25f8a91ed56c0b04298f7ca909bebead, type: 2}
   - {fileID: 11400000, guid: 323b96ceb172e3947b297de187d09ac1, type: 2}
@@ -4735,8 +4735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -106.99999}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -53.500008}
+  m_SizeDelta: {x: 0, y: -107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673556880
 MonoBehaviour:
@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -7.0192413, y: 0, z: -16.378372, w: 73.18848}
+  m_margin: {x: -7.0192413, y: 37.644226, z: -16.378372, w: 1.6644897}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6781,7 +6781,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.89433956, g: 0.84877884, b: 0.84877884, a: 1}
+    m_HighlightedColor: {r: 0.7509433, g: 0.7466927, b: 0.7466927, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
