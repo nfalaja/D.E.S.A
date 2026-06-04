@@ -591,7 +591,7 @@ MonoBehaviour:
   - {fileID: 754575651}
   - {fileID: 1987910246}
   - {fileID: 1977190132}
-  namaSceneGameplayUtama: Cutscane
+  namaSceneGameplayUtama: ToturialScane
 --- !u!1 &1358946322
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1423610097005610550, guid: e14828d36e7890b40937d1b6fdc9aa49, type: 3}
+  m_Sprite: {fileID: -3669297437698157798, guid: 5ca83e59b273dcf4d8da71556fa3b1af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 127082d6d1f57784b9b6eb0cec466771
+guid: 918ac895457e90640806021b9d6f8315
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9100436494808080357
-    second: erine jkt48_0
+      213: -1074105357714476246
+    second: 6_20260604_145339_0005_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: erine jkt48_0
+      name: 6_20260604_145339_0005_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 736
-        height: 552
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b10a6f16931c4b180800000000000000
-      internalID: -9100436494808080357
+      spriteID: a23b5163ed20811f0800000000000000
+      internalID: -1074105357714476246
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      erine jkt48_0: -9100436494808080357
+      6_20260604_145339_0005_0: -1074105357714476246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
