@@ -66,12 +66,12 @@ MonoBehaviour:
     m_PointSize: 86
     m_Scale: 1
     m_UnitsPerEM: 2048
-    m_LineHeight: 85.41211
-    m_AscentLine: 62.064453
+    m_LineHeight: 85
+    m_AscentLine: 62
     m_CapLine: 62
     m_MeanLine: 47
     m_Baseline: 0
-    m_DescentLine: -14.739258
+    m_DescentLine: -15
     m_SuperscriptOffset: 62.064453
     m_SuperscriptSize: 0.5
     m_SubscriptOffset: -14.739258

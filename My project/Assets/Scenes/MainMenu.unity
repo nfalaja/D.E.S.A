@@ -178,16 +178,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Aghna Naufal 5225600100 - Game Designer
 
-    I Putu Satwika Werdi Widagda
-    Karang 5225600112 - Game Programmer
+    I Putu Satwika Werdi W K
+    5225600112 - Game Programmer
 
-    Zahra'' Adientya Putri 5225600103 -
-    2D Artist
+    Zahra'' Adientya Putri 5225600103 - 2D Artist
 
-    Kalvin Luna Sinuraya 5225600120 - Game Programmer
+    Kalvin
+    Luna Sinuraya 5225600120 - Game Programmer
 
-    Raditya
-    Pradipta 5225600118 - Sound Enginer'
+    Raditya Pradipta 5225600118 -
+    Sound Enginer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3bfe59ebcdc477b40958e01dc591f5e0, type: 2}
   m_sharedMaterial: {fileID: 5321872928211502642, guid: 3bfe59ebcdc477b40958e01dc591f5e0, type: 2}
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_wordSpacing: 3
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
