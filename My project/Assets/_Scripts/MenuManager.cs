@@ -1,19 +1,22 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; // Ditambahkan agar bisa pindah scene
 
 public class CutsceneManager : MonoBehaviour
 {
     [System.Serializable]
     public class CutsceneStep
     {
-        public GameObject gambarCutscene; // Gambar untuk cutscene ini (misal: Gambar1)
+        public GameObject gambarCutscene; // Gambar untuk cutscene ini
+        public string namaPembicara;      // BARU: Nama karakter yang berbicara di slide ini
         [TextArea(3, 5)]
         public string teksDialog;         // Teks dialog yang sesuai dengan gambar ini
     }
 
     [Header("UI Components")]
-    public TextMeshProUGUI dialogText;   // Tarik 'Text (TMP)' ke sini
-    public GameObject wadahDialog;       // Tarik objek 'Wadah/Panel Dialog' Anda ke sini
+    public TextMeshProUGUI dialogText;       // Tempat teks dialog utama (Objek 'Dialog')
+    public TextMeshProUGUI namaPembicaraText; // BARU: Tempat nama karakter (Objek 'Pembicara')
+    public GameObject wadahDialog;           // Tempat background dialog (Objek 'Wadah')
 
     [Header("Cutscene Sequence")]
     public CutsceneStep[] cutsceneSequence; // List urutan gambar dan dialog
@@ -22,13 +25,9 @@ public class CutsceneManager : MonoBehaviour
 
     void Start()
     {
-        // Pastikan wadah dialog aktif saat mulai
         if (wadahDialog != null) wadahDialog.SetActive(true);
 
-        // Sembunyikan semua gambar dulu untuk keamanan
         SembunyikanSemuaGambar();
-
-        // Tampilkan cutscene pertama
         TampilkanStep(currentIndex);
     }
 
@@ -50,13 +49,19 @@ public class CutsceneManager : MonoBehaviour
     {
         SembunyikanSemuaGambar();
 
-        // Aktifkan gambar yang aktif sekarang
+        // 1. Aktifkan gambar yang aktif sekarang
         if (cutsceneSequence[index].gambarCutscene != null)
         {
             cutsceneSequence[index].gambarCutscene.SetActive(true);
         }
 
-        // Ubah teks dialognya
+        // 2. Ubah teks nama pembicara
+        if (namaPembicaraText != null)
+        {
+            namaPembicaraText.text = cutsceneSequence[index].namaPembicara;
+        }
+
+        // 3. Ubah teks isi dialognya
         if (dialogText != null)
         {
             dialogText.text = cutsceneSequence[index].teksDialog;
@@ -65,7 +70,6 @@ public class CutsceneManager : MonoBehaviour
 
     void SembunyikanSemuaGambar()
     {
-        // Menonaktifkan semua gambar yang didaftarkan agar tidak tumpang tindih
         foreach (var step in cutsceneSequence)
         {
             if (step.gambarCutscene != null)
@@ -79,6 +83,8 @@ public class CutsceneManager : MonoBehaviour
     {
         Debug.Log("Komik selesai, masuk ke game utama!");
         if (wadahDialog != null) wadahDialog.SetActive(false);
-        // Tambahkan fungsi pindah scene Anda di sini jika diperlukan
+
+        // Menggunakan nama scene target dari input di editor kamu
+        SceneManager.LoadScene("ToturialScane");
     }
 }
