@@ -3,10 +3,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using System;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    [Header("Random Events")]
+    public List<EventData> possibleEvents;
+    [Range(0, 100)] public int eventChancePerWeek = 30; // 30% kemungkinan terjadi
 
     [Header("Player Stats")]
     public int statEkonomi = 0;
@@ -63,32 +68,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void NextDay()
-    {
-        statEkonomi += 10;
 
-        if (currentDay % 7 == 0)
-        {
-            if (!IsObjectiveMet())
-            {
-                TriggerGameOver();
-                return;
-            }
-            else
-            {
-                currentWeek++;
-                CalculateObjective();
-            }
-        }
-
-        currentDay++;
-        StartCoroutine(ShowDayTransition());
-        OnDayChanged?.Invoke();
-    }
 
     private void CalculateObjective()
     {
-        currentObjectiveTarget = 30 + (10 * (currentWeek * currentWeek));
+        // KODE PENYELAMATAN: Pertumbuhan Linear (Bukan Kuadratik)
+        currentObjectiveTarget = 50 + (40 * currentWeek);
 
         if (currentWeek <= 2)
         {
@@ -228,11 +213,45 @@ public class GameManager : MonoBehaviour
                 Debug.Log("[SISTEM] Target Tercapai! Lanjut ke minggu berikutnya.");
                 currentWeek++;
                 CalculateObjective();
+
+                // --- PEMICU EVENT (Hanya muncul mulai Minggu ke-3) ---
+                // Beri pemain waktu bernapas di 2 minggu awal untuk menata ekonomi.
+                if (currentWeek >= 3)
+                {
+                    TriggerRandomEvent();
+                }
             }
         }
 
         currentDay++;
         UIManager.Instance.UpdateStatsUI();
+    }
+
+    private void TriggerRandomEvent()
+    {
+        // Pastikan list EventData tidak kosong dan kamu sudah menarik file-nya di Inspector
+        if (possibleEvents == null || possibleEvents.Count == 0) return;
+
+        int roll = UnityEngine.Random.Range(0, 100);
+
+        // Probabilitas dinamis: Makin lama bertahan, makin tinggi peluang terjadi Event (Max 60%)
+        int currentChance = Mathf.Min(eventChancePerWeek + (currentWeek * 5), 60);
+
+        if (roll < currentChance)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, possibleEvents.Count);
+            EventData eventAcak = possibleEvents[randomIndex];
+
+            Debug.Log($"[EVENT MINGGUAN] {eventAcak.eventName} Terjadi!");
+
+            // Modifikasi stat sesuai efek event (Bisa minus/bencana, bisa plus/berkah)
+            foreach (var modifier in eventAcak.penalties)
+            {
+                ModifyStats(modifier.statType, modifier.amount);
+            }
+
+            UIManager.Instance.ShowEventNotification(eventAcak);
+        }
     }
 
     public void RetryGame()

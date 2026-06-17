@@ -6,6 +6,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [Header("Event Panel")]
+    public GameObject eventPanel;
+    public TextMeshProUGUI txtEventTitle;
+    public TextMeshProUGUI txtEventDescription;
+
     [Header("Stats Text")]
     public TextMeshProUGUI txtEcon;
     public TextMeshProUGUI txtEnv;
@@ -34,6 +39,13 @@ public class UIManager : MonoBehaviour
     {
         bool sedangAktif = papanOBJ.activeSelf;
         papanOBJ.SetActive(!sedangAktif);
+    }
+
+    public void ShowEventNotification(EventData krisis)
+    {
+        txtEventTitle.text = "KRISIS: " + krisis.eventName;
+        txtEventDescription.text = krisis.eventDescription;
+        eventPanel.SetActive(true);
     }
 
     public void UpdateStatsUI()
@@ -79,8 +91,8 @@ public class UIManager : MonoBehaviour
                                   $"<b>Rekor Minggu Tertinggi: Minggu {rekorTertinggi}</b>";
     }
 
-    public void OnClickNextDay()
+    public void CloseEventNotification()
     {
-        GameManager.Instance.TryStartNextDay();
+        eventPanel.SetActive(false);
     }
 }
