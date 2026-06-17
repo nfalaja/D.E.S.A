@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using System;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,11 +68,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-  
+
 
     private void CalculateObjective()
     {
-        currentObjectiveTarget = 30 + (10 * (currentWeek * currentWeek));
+        // KODE PENYELAMATAN: Pertumbuhan Linear (Bukan Kuadratik)
+        currentObjectiveTarget = 50 + (40 * currentWeek);
 
         if (currentWeek <= 2)
         {
@@ -211,7 +213,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log("[SISTEM] Target Tercapai! Lanjut ke minggu berikutnya.");
                 currentWeek++;
                 CalculateObjective();
-                TriggerRandomEvent();
+
+                // --- PEMICU EVENT (Hanya muncul mulai Minggu ke-3) ---
+                // Beri pemain waktu bernapas di 2 minggu awal untuk menata ekonomi.
+                if (currentWeek >= 3)
+                {
+                    TriggerRandomEvent();
+                }
             }
         }
 
@@ -221,27 +229,28 @@ public class GameManager : MonoBehaviour
 
     private void TriggerRandomEvent()
     {
-        // Pastikan ada event yang didaftarkan
+        // Pastikan list EventData tidak kosong dan kamu sudah menarik file-nya di Inspector
         if (possibleEvents == null || possibleEvents.Count == 0) return;
 
-        // Kocok dadu probabilitas
         int roll = UnityEngine.Random.Range(0, 100);
-        if (roll < eventChancePerWeek)
+
+        // Probabilitas dinamis: Makin lama bertahan, makin tinggi peluang terjadi Event (Max 60%)
+        int currentChance = Mathf.Min(eventChancePerWeek + (currentWeek * 5), 60);
+
+        if (roll < currentChance)
         {
-            // Bencana terjadi! Pilih satu secara acak
             int randomIndex = UnityEngine.Random.Range(0, possibleEvents.Count);
-            EventData krisis = possibleEvents[randomIndex];
+            EventData eventAcak = possibleEvents[randomIndex];
 
-            Debug.Log($"[BENCANA] {krisis.eventName} menghantam desa!");
+            Debug.Log($"[EVENT MINGGUAN] {eventAcak.eventName} Terjadi!");
 
-            // Eksekusi hukuman stat
-            foreach (var penalty in krisis.penalties)
+            // Modifikasi stat sesuai efek event (Bisa minus/bencana, bisa plus/berkah)
+            foreach (var modifier in eventAcak.penalties)
             {
-                ModifyStats(penalty.statType, penalty.amount);
+                ModifyStats(modifier.statType, modifier.amount);
             }
 
-            // Tampilkan notifikasi ke pemain
-            UIManager.Instance.ShowEventNotification(krisis);
+            UIManager.Instance.ShowEventNotification(eventAcak);
         }
     }
 

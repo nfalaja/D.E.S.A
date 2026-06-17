@@ -91,7 +91,8 @@ public class UIManager : MonoBehaviour
                                   $"<b>Rekor Minggu Tertinggi: Minggu {rekorTertinggi}</b>";
     }
 
+    public void CloseEventNotification()
     {
-    eventPanel.SetActive(false);
+        eventPanel.SetActive(false);
     }
 }
