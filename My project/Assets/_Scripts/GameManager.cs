@@ -63,28 +63,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void NextDay()
-    {
-        statEkonomi += 10;
-
-        if (currentDay % 7 == 0)
-        {
-            if (!IsObjectiveMet())
-            {
-                TriggerGameOver();
-                return;
-            }
-            else
-            {
-                currentWeek++;
-                CalculateObjective();
-            }
-        }
-
-        currentDay++;
-        StartCoroutine(ShowDayTransition());
-        OnDayChanged?.Invoke();
-    }
+  
 
     private void CalculateObjective()
     {
