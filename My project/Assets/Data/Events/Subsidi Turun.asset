@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Subsidi Turun
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   eventName: Subsidi Turun
-  eventDescription: 
-  penalties: []
+  eventDescription: Pemerintah melihat potensi desamu
+  penalties:
+  - statType: 0
+    amount: 100

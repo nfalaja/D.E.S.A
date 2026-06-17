@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5ce556dbc0c734d841e3ef1be89e39, type: 3}
   m_Name: Bantuan LSM Lingkungan
   m_EditorClassIdentifier: Assembly-CSharp::EventData
-  eventName: 
-  eventDescription: 
-  penalties: []
+  eventName: Bantuan LSM Lingkungan
+  eventDescription: Relawan datang membersihkan desa
+  penalties:
+  - statType: 1
+    amount: 100

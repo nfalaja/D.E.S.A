@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5ce556dbc0c734d841e3ef1be89e39, type: 3}
   m_Name: Viral di Medsos
   m_EditorClassIdentifier: Assembly-CSharp::EventData
-  eventName: 
-  eventDescription: 
-  penalties: []
+  eventName: Viral di Medsos
+  eventDescription: Influencer memuji keramahan desamu
+  penalties:
+  - statType: 2
+    amount: 80
