@@ -78,9 +78,4 @@ public class UIManager : MonoBehaviour
                                   $"Total Stat Terakhir: {totalStats}\n" +
                                   $"<b>Rekor Minggu Tertinggi: Minggu {rekorTertinggi}</b>";
     }
-
-    public void OnClickNextDay()
-    {
-        GameManager.Instance.TryStartNextDay();
-    }
 }
