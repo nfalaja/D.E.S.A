@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject eventPanel;
     public TextMeshProUGUI txtEventTitle;
     public TextMeshProUGUI txtEventDescription;
+    public TextMeshProUGUI txtEventEffects;
 
     [Header("Stats Text")]
     public TextMeshProUGUI txtEcon;
@@ -43,8 +44,36 @@ public class UIManager : MonoBehaviour
 
     public void ShowEventNotification(EventData krisis)
     {
-        txtEventTitle.text = "KRISIS: " + krisis.eventName;
+        txtEventTitle.text = "INFO DESA: " + krisis.eventName;
         txtEventDescription.text = krisis.eventDescription;
+
+        // --- PROTOKOL BEDAH EFEK ---
+        string efekTeks = "<b>Dampak:</b>\n";
+
+        // Loop melalui semua penalti/bonus yang ada di event ini
+        if (krisis.penalties != null && krisis.penalties.Count > 0)
+        {
+            foreach (var modifier in krisis.penalties)
+            {
+                // Format: Jika minus tampilkan merah, jika plus (event baik) tampilkan hijau
+                string tanda = modifier.amount > 0 ? "+" : "";
+                string warnaHex = modifier.amount > 0 ? "#00FF00" : "#FF0000"; // Hijau atau Merah
+
+                efekTeks += $"<color={warnaHex}>{modifier.statType}: {tanda}{modifier.amount}</color>\n";
+            }
+        }
+        else
+        {
+            efekTeks += "Tidak ada dampak signifikan.";
+        }
+
+        // Tembakkan hasil rakitan teks ke UI
+        if (txtEventEffects != null)
+        {
+            txtEventEffects.text = efekTeks;
+        }
+        // ---------------------------
+
         eventPanel.SetActive(true);
     }
 
@@ -94,5 +123,6 @@ public class UIManager : MonoBehaviour
     public void CloseEventNotification()
     {
         eventPanel.SetActive(false);
+        DraftingManager.Instance.ShowDrafting();
     }
 }
