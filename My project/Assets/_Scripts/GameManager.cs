@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Random Events")]
+    public List<EventData> possibleEvents;
+    [Range(0, 100)] public int eventChancePerWeek = 30; // 30% kemungkinan terjadi
+
     [Header("Player Stats")]
     public int statEkonomi = 0;
     public int statLingkungan = 0;
@@ -207,11 +211,38 @@ public class GameManager : MonoBehaviour
                 Debug.Log("[SISTEM] Target Tercapai! Lanjut ke minggu berikutnya.");
                 currentWeek++;
                 CalculateObjective();
+                TriggerRandomEvent();
             }
         }
 
         currentDay++;
         UIManager.Instance.UpdateStatsUI();
+    }
+
+    private void TriggerRandomEvent()
+    {
+        // Pastikan ada event yang didaftarkan
+        if (possibleEvents == null || possibleEvents.Count == 0) return;
+
+        // Kocok dadu probabilitas
+        int roll = UnityEngine.Random.Range(0, 100);
+        if (roll < eventChancePerWeek)
+        {
+            // Bencana terjadi! Pilih satu secara acak
+            int randomIndex = UnityEngine.Random.Range(0, possibleEvents.Count);
+            EventData krisis = possibleEvents[randomIndex];
+
+            Debug.Log($"[BENCANA] {krisis.eventName} menghantam desa!");
+
+            // Eksekusi hukuman stat
+            foreach (var penalty in krisis.penalties)
+            {
+                ModifyStats(penalty.statType, penalty.amount);
+            }
+
+            // Tampilkan notifikasi ke pemain
+            UIManager.Instance.ShowEventNotification(krisis);
+        }
     }
 
     public void RetryGame()
