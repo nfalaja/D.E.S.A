@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ce62747bfbf54f3458b71ab87cbdf56e
+guid: e0cf4b441865c4743bcd926e8c380570
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7484425565051100548
-    second: bg baru fix_0
+      213: 8122442773869313081
+    second: bg baru fix 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bg baru fix_0
+      name: bg baru fix 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48d19b0b5650ed760800000000000000
-      internalID: 7484425565051100548
+      spriteID: 93c3be41ba6b8b070800000000000000
+      internalID: 8122442773869313081
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bg baru fix_0: 7484425565051100548
+      bg baru fix 1_0: 8122442773869313081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

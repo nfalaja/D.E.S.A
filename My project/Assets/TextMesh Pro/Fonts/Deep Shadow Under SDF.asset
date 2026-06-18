@@ -119,9 +119,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.5
+    - _ScaleRatioB: 0.40625
+    - _ScaleRatioC: 0.40625
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
     m_SubscriptSize: 0.5
     m_UnderlineOffset: -7.5566406
     m_UnderlineThickness: 3.881836
-    m_StrikethroughOffset: 0
+    m_StrikethroughOffset: 28.8
     m_StrikethroughThickness: 3.881836
     m_TabWidth: 21
   m_Material: {fileID: -3595530246541841750}
