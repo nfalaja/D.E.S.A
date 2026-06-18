@@ -23,4 +23,4 @@ MonoBehaviour:
     amount: 30
   - statType: 2
     amount: 30
-  cardImage: {fileID: -8038976213705442086, guid: aca554c6ca36e054ca4237cfe263f97b, type: 3}
+  cardImage: {fileID: 637637987461623775, guid: 437be6afe4cdbd949b5d4cec7068ae03, type: 3}
