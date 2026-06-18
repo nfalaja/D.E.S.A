@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 79cdcf7a20d83114d9c904b37d7069bd
+guid: 5606b7196af99544dab30b52a4c57e48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8221573496535784875
-    second: background baru prodes_0
+      213: -8943322465476932127
+    second: tutup_0
+  - first:
+      213: 4930249666620721787
+    second: tutup_1
+  - first:
+      213: -6881719336272289085
+    second: tutup_2
+  - first:
+      213: 3413061733067892221
+    second: tutup_3
+  - first:
+      213: 2661322902555781504
+    second: tutup_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +112,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background baru prodes_0
+      name: tutup_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3840
-        height: 2160
+        x: 10
+        y: 12
+        width: 32
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 552e734f67a17ed80800000000000000
-      internalID: -8221573496535784875
+      spriteID: 1ed0a75f99fe2e380800000000000000
+      internalID: -8943322465476932127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutup_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 12
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7a8ae043f3cb6440800000000000000
+      internalID: 4930249666620721787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutup_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 12
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2ad8d79b83f70a0800000000000000
+      internalID: -6881719336272289085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutup_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 12
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5adf32091ad5f20800000000000000
+      internalID: 3413061733067892221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutup_4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 12
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 089e27f541beee420800000000000000
+      internalID: 2661322902555781504
       vertices: []
       indices: 
       edges: []
@@ -125,8 +225,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      background baru prodes_0: -8221573496535784875
+      tutup_0: -8943322465476932127
+      tutup_1: 4930249666620721787
+      tutup_2: -6881719336272289085
+      tutup_3: 3413061733067892221
+      tutup_4: 2661322902555781504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

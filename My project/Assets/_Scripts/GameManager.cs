@@ -177,6 +177,10 @@ public class GameManager : MonoBehaviour
         isTransitioning = true;
         dayOverlay.SetActive(true);
 
+        // Catat minggu sekarang sebelum logika berjalan
+        int previousWeek = currentWeek;
+
+        // Hitung stat dan cek kematian di balik layar gelap
         ExecuteDailyLogic();
 
         if (isGameOver)
@@ -184,14 +188,36 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
-        txtDayNumber.text = "Day " + currentDay;
+        txtDayNumber.text = "Hari ke " + currentDay;
 
+        // Tunggu sebentar agar pemain bisa membaca "Hari ke X"
         yield return new WaitForSeconds(1.5f);
 
+        // Hilangkan layar hitam transisi
         dayOverlay.SetActive(false);
 
-        DraftingManager.Instance.ShowDrafting();
+        // --- CEK EVENT MINGGUAN SEBELUM DRAFTING ---
+        // Jika minggu bertambah (artinya baru saja ganti minggu) DAN minimal minggu ke-3
+        bool isNewWeek = currentWeek > previousWeek;
 
+        if (isNewWeek && currentWeek >= 3)
+        {
+            // Coba picu event. Fungsi ini akan mengembalikan TRUE jika event terjadi.
+            bool eventTerjadi = TriggerRandomEvent();
+
+            // Jika event terjadi, HENTIKAN coroutine ini, JANGAN tampilkan drafting.
+            // Pemain harus menutup panel event dulu. Nanti tombol tutup event yang akan
+            // memanggil panel drafting.
+            if (eventTerjadi)
+            {
+                isTransitioning = false;
+                yield break; // Berhenti di sini!
+            }
+        }
+
+        // Jika tidak ada ganti minggu ATAU ganti minggu tapi tidak ada event yang terpicu,
+        // lanjutkan ke panel drafting seperti biasa.
+        DraftingManager.Instance.ShowDrafting();
         isTransitioning = false;
     }
 
@@ -216,10 +242,10 @@ public class GameManager : MonoBehaviour
 
                 // --- PEMICU EVENT (Hanya muncul mulai Minggu ke-3) ---
                 // Beri pemain waktu bernapas di 2 minggu awal untuk menata ekonomi.
-                if (currentWeek >= 3)
-                {
-                    TriggerRandomEvent();
-                }
+                //if (currentWeek >= 3)
+                //{
+                //    TriggerRandomEvent();
+                //}
             }
         }
 
@@ -227,14 +253,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateStatsUI();
     }
 
-    private void TriggerRandomEvent()
+    private bool TriggerRandomEvent()
     {
-        // Pastikan list EventData tidak kosong dan kamu sudah menarik file-nya di Inspector
-        if (possibleEvents == null || possibleEvents.Count == 0) return;
+        if (possibleEvents == null || possibleEvents.Count == 0) return false;
 
         int roll = UnityEngine.Random.Range(0, 100);
-
-        // Probabilitas dinamis: Makin lama bertahan, makin tinggi peluang terjadi Event (Max 60%)
         int currentChance = Mathf.Min(eventChancePerWeek + (currentWeek * 5), 60);
 
         if (roll < currentChance)
@@ -244,14 +267,15 @@ public class GameManager : MonoBehaviour
 
             Debug.Log($"[EVENT MINGGUAN] {eventAcak.eventName} Terjadi!");
 
-            // Modifikasi stat sesuai efek event (Bisa minus/bencana, bisa plus/berkah)
             foreach (var modifier in eventAcak.penalties)
             {
                 ModifyStats(modifier.statType, modifier.amount);
             }
 
             UIManager.Instance.ShowEventNotification(eventAcak);
+            return true;
         }
+        return false;
     }
 
     public void RetryGame()
