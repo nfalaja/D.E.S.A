@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efb9ed4c26a060b47a89da92de831154
+guid: fb844bdacc1e768418ba89c0043e8e6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6450968925428478614
-    second: Suntikan Dana Gelap_0
+      213: -2163481682255003668
+    second: Group 140_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Suntikan Dana Gelap_0
+      name: Group 140_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6d80c6e0fd8976a0800000000000000
-      internalID: -6450968925428478614
+      spriteID: cef30236fd4c9f1e0800000000000000
+      internalID: -2163481682255003668
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Suntikan Dana Gelap_0: -6450968925428478614
+      Group 140_0: -2163481682255003668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
