@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4b9b467e758070849852094c77fa6480
+guid: 51a300853688b3742ae5f3986abb67d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 615523401819508044
-    second: desain border kayu kartu bangunan_0
+      213: 5140268454493306302
+    second: desain border kayu kartu poskamling_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desain border kayu kartu bangunan_0
+      name: desain border kayu kartu poskamling_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 3981
-        height: 2069
+        x: 0
+        y: 18
+        width: 4000
+        height: 2051
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4d4464d547ca8800800000000000000
-      internalID: 615523401819508044
+      spriteID: ebd3830dce6e55740800000000000000
+      internalID: 5140268454493306302
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      desain border kayu kartu bangunan_0: 615523401819508044
+      desain border kayu kartu poskamling_0: 5140268454493306302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
