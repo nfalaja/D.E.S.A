@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 763758119}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: KomikClickController, Assembly-CSharp
         m_MethodName: TampilkanGambarBerikutnya
         m_Mode: 1
@@ -292,7 +292,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 763758120}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
         m_MethodName: AdvanceDialog
         m_Mode: 1
@@ -838,7 +838,6 @@ GameObject:
   m_Component:
   - component: {fileID: 763758118}
   - component: {fileID: 763758119}
-  - component: {fileID: 763758120}
   m_Layer: 0
   m_Name: KomikClickController
   m_TagString: Untagged
@@ -870,28 +869,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 763758117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5dce902205bcc4d84d502d8db2fae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KomikClickController
-  semuaGambar:
-  - {fileID: 1358946322}
-  - {fileID: 1358946322}
-  - {fileID: 754575651}
-  - {fileID: 754575651}
-  - {fileID: 1987910246}
-  - {fileID: 1987910246}
-  - {fileID: 1977190132}
-  - {fileID: 1977190132}
-  namaSceneGameplayUtama: ToturialScane
---- !u!114 &763758120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763758117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80805cf8a2a4c8f48894ade70ffa8eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
@@ -909,18 +886,20 @@ MonoBehaviour:
       mengemban amanah ini dengan penuh tanggung jawab demi kemajuan desa kita
   - gambarCutscene: {fileID: 754575651}
     namaPembicara: Kepala Desa Tua
-    teksDialog: Nah, ini draf awal Program Desa Mandiri yang sudah saya siapkan.
+    teksDialog: 'Nah, ini draf awal Program Desa Mandiri yang sudah saya siapkan.
       Pelajari baik-baik agar kamu punya gambaran untuk langkah pertama
+
+'
   - gambarCutscene: {fileID: 754575651}
     namaPembicara: Kepala Desa Muda
     teksDialog: Baik, Pak, saya pahami. Dokumen ini akan menjadi acuan penting bagi
-      saya saat turun ke lapangan nant
+      saya saat turun ke lapangan nanti
   - gambarCutscene: {fileID: 1987910246}
     namaPembicara: Kepala Desa Muda
     teksDialog: Berdasarkan rencana di kertas ini, area persawahan di sebelah utara
       desa memang yang paling membutuhkan sistem irigasi baru secepatnya
   - gambarCutscene: {fileID: 1987910246}
-    namaPembicara: Petani
+    namaPembicara: Kepala Desa Muda
     teksDialog: Semoga rencana pembangunan saluran airnya berjalan lancar ya, Mas.
       Kami para petani sangat mengandalkannya
   - gambarCutscene: {fileID: 1977190132}
@@ -931,6 +910,7 @@ MonoBehaviour:
     namaPembicara: Pekerja
     teksDialog: Siap, Pak! Kami semua bersemangat karena tahu fasilitas ini akan
       sangat berguna untuk seluruh warga desa
+  namaSceneTujuan: GameScene
 --- !u!1 &866361137
 GameObject:
   m_ObjectHideFlags: 0
