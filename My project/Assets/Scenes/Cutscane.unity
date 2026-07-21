@@ -734,38 +734,37 @@ MonoBehaviour:
   cutsceneSequence:
   - gambarCutscene: {fileID: 1358946322}
     namaPembicara: Kepala Desa Tua
-    teksDialog: Selamat, Nak. Mulai hari ini, kamu resmi saya tunjuk untuk memimpin
-      program pembangunan di desa kita. Ini Surat Jabatannya
+    teksDialog: '"Selamat, Nak. Mulai hari ini, kamu saya percaya untuk memimpin
+      program pembangunan di desa kita. Ini surat pengangkatannya."'
   - gambarCutscene: {fileID: 1358946322}
     namaPembicara: Kepala Desa Muda
-    teksDialog: Terima kasih banyak atas kepercayaannya, Pak! Saya berjanji akan
-      mengemban amanah ini dengan penuh tanggung jawab demi kemajuan desa kita
+    teksDialog: '"Terima kasih banyak, Pak, atas kepercayaannya. Saya akan berusaha
+      sebaik mungkin menjalankan amanah ini demi kemajuan desa kita."'
   - gambarCutscene: {fileID: 754575651}
     namaPembicara: Kepala Desa Tua
-    teksDialog: 'Nah, ini draf awal Program Desa Mandiri yang sudah saya siapkan.
-      Pelajari baik-baik agar kamu punya gambaran untuk langkah pertama
-
-'
+    teksDialog: '"Ini draf awal Program Desa Mandiri yang sudah saya siapkan. Pelajari
+      dulu baik-baik, supaya kamu punya gambaran sebelum mulai bekerja."'
   - gambarCutscene: {fileID: 754575651}
     namaPembicara: Kepala Desa Muda
-    teksDialog: Baik, Pak, saya pahami. Dokumen ini akan menjadi acuan penting bagi
-      saya saat turun ke lapangan nanti
+    teksDialog: '"Baik, Pak. Saya akan mempelajarinya dengan saksama. Ini pasti akan
+      sangat membantu saat saya mulai turun ke lapangan."'
   - gambarCutscene: {fileID: 1987910246}
     namaPembicara: Kepala Desa Muda
-    teksDialog: Berdasarkan rencana di kertas ini, area persawahan di sebelah utara
-      desa memang yang paling membutuhkan sistem irigasi baru secepatnya
+    teksDialog: '"Kalau melihat rencana ini, area persawahan di sebelah utara memang
+      jadi prioritas. Saluran irigasinya perlu segera diperbaiki agar hasil panen
+      warga bisa lebih baik."'
   - gambarCutscene: {fileID: 1987910246}
-    namaPembicara: Kepala Desa Muda
-    teksDialog: Semoga rencana pembangunan saluran airnya berjalan lancar ya, Mas.
-      Kami para petani sangat mengandalkannya
+    namaPembicara: Petani
+    teksDialog: '"Semoga pembangunannya berjalan lancar ya, Mas. Kami semua berharap
+      banyak pada irigasi baru ini."'
   - gambarCutscene: {fileID: 1977190132}
     namaPembicara: Kepala Desa Muda
-    teksDialog: Luar biasa! Progres pengerjaan jalurnya sangat cepat dan semua material
-      sudah siap. Pertahankan kerja bagus ini, Pak!
+    teksDialog: '"Wah, pengerjaannya sudah sejauh ini, ya. Bagus sekali! Tetap jaga
+      kualitasnya supaya hasilnya benar-benar bermanfaat untuk warga."'
   - gambarCutscene: {fileID: 1977190132}
-    namaPembicara: Pekerja
-    teksDialog: Siap, Pak! Kami semua bersemangat karena tahu fasilitas ini akan
-      sangat berguna untuk seluruh warga desa
+    namaPembicara: Pekerja Bangunan
+    teksDialog: '"Siap, Pak! Kami akan terus bekerja semaksimal mungkin. Senang rasanya
+      bisa ikut membangun desa."'
   namaSceneTujuan: ToturialScane
 --- !u!1 &866361137
 GameObject:
