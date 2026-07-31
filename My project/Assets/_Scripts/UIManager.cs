@@ -6,6 +6,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [Header("HUD Waktu")]
+    public TextMeshProUGUI Txt_Day;
+    public TextMeshProUGUI Txt_Week;
+
     [Header("Event Panel")]
     public GameObject eventPanel;
     public TextMeshProUGUI txtEventTitle;
@@ -22,7 +26,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI txtNotification;
     public GameObject gameOverPanel;
     public TextMeshProUGUI txtGameOverDetails;
-    public GameObject papanOBJ; // Panel yang show/hide
 
     [Header("Warning Pop-Up")]
     public GameObject warningPanel;
@@ -42,17 +45,6 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        papanOBJ.SetActive(false); // Sembunyikan saat game mulai
-    }
-
-    // Dipanggil oleh Btn_OBJ
-    public void TogglePapanOBJ()
-    {
-        bool sedangAktif = papanOBJ.activeSelf;
-        papanOBJ.SetActive(!sedangAktif);
-    }
 
     public void ShowEventNotification(EventData krisis)
     {
@@ -94,6 +86,8 @@ public class UIManager : MonoBehaviour
         txtEcon.text = ": " + GameManager.Instance.statEkonomi;
         txtEnv.text = ": " + GameManager.Instance.statLingkungan;
         txtSoc.text = ": " + GameManager.Instance.statSosial;
+        if (Txt_Day != null) Txt_Day.text = "Hari Ke: " + GameManager.Instance.currentDay;
+        if (Txt_Week != null) Txt_Week.text = "Minggu Ke: " + GameManager.Instance.currentWeek;
         CheckNotifications();
     }
 
@@ -106,7 +100,6 @@ public class UIManager : MonoBehaviour
         if (reqLing) teksBaru += $"- Lingkungan: {targetScore}\n";
 
         txtObjective.text = teksBaru;
-        papanOBJ.SetActive(false); // Auto-tutup saat minggu baru
     }
 
     private void CheckNotifications()

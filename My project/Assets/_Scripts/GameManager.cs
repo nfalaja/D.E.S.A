@@ -319,17 +319,10 @@ public class GameManager : MonoBehaviour
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            // Jangan izinkan apapun saat Game Over atau Transisi
+            // Jika game over atau sedang transisi, BERHENTI (Gunakan return kosong)
             if (isGameOver || isTransitioning) return;
 
-            // PRIORITAS 1: Kalau Papan OBJ sedang terbuka, tutup dulu
-            if (UIManager.Instance.papanOBJ.activeSelf)
-            {
-                UIManager.Instance.papanOBJ.SetActive(false);
-                return; // Berhenti di sini, jangan lanjut ke Pause
-            }
-
-            // PRIORITAS 2: Baru toggle Pause seperti biasa
+            // Langsung panggil fungsinya, JANGAN pakai kata return di depannya
             TogglePause();
         }
     }

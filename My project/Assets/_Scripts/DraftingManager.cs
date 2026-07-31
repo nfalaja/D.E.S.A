@@ -104,7 +104,8 @@ public class DraftingManager : MonoBehaviour
         {
             Debug.LogWarning("[DRAFTING] Gagal beli! Tangan sudah penuh.");
 
-            
+            // Panggil Pop-Up UI (UIManager-mu sudah siap menerima ini)
+            UIManager.Instance.ShowWarning("Tangan Penuh! Mainkan kartu dulu.");
             return;
         }
 
@@ -120,7 +121,7 @@ public class DraftingManager : MonoBehaviour
         {
             Debug.LogWarning("[DRAFTING] Kas Ekonomi tidak cukup!");
 
-            // Panggil Pop-Up dan Suara Error
+            // Panggil Pop-Up UI
             UIManager.Instance.ShowWarning("Uang Kas Tidak Cukup!");
         }
     }
