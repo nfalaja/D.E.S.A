@@ -49,12 +49,28 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // 1. TETAPKAN MODAL AWAL SECARA ABSOLUT
+        statEkonomi = 100;
+        statLingkungan = 0;
+        statSosial = 0;
+
         CalculateObjective();
         GiveInitialCards();
 
         isPaused = false;
         Time.timeScale = 1f;
         pausePanel.SetActive(false);
+
+        // 2. PAKSA UI BERSINKRONISASI DI FRAME PERTAMA
+        // Tanpa baris ini, pemain hanya akan melihat UI kosong/default prefab.
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateStatsUI();
+        }
+        else
+        {
+            Debug.LogError("[GameManager] UIManager belum siap! Pastikan Script Execution Order UIManager lebih dulu dari GameManager.");
+        }
     }
 
     private void GiveInitialCards()
@@ -73,7 +89,7 @@ public class GameManager : MonoBehaviour
     private void CalculateObjective()
     {
         // KODE PENYELAMATAN: Pertumbuhan Linear (Bukan Kuadratik)
-        currentObjectiveTarget = 50 + (40 * currentWeek);
+        currentObjectiveTarget = 50 + (30 * currentWeek) + (15 * currentWeek * currentWeek);
 
         if (currentWeek <= 2)
         {
