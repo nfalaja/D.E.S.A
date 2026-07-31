@@ -35,6 +35,10 @@ public class BuildingDropZone : MonoBehaviour, IDropHandler
                 else
                 {
                     Debug.LogWarning("[BANGUNAN] Kartu tidak kompatibel atau slot penuh!");
+
+                    // --- SUNTIKKAN PENAMPAR UI DAN AUDIO DI SINI ---
+                    UIManager.Instance.ShowWarning("Slot Penuh atau Kartu Tidak Cocok!");
+                    // -----------------------------------------------
                 }
             }
         }
