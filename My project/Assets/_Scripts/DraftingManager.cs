@@ -99,23 +99,29 @@ public class DraftingManager : MonoBehaviour
 
     public void TryBuyCard(CardData selectedCard)
     {
+        // 1. CEK TANGAN PENUH
         if (!HandManager.Instance.CanAddCard())
         {
             Debug.LogWarning("[DRAFTING] Gagal beli! Tangan sudah penuh.");
+
+            
             return;
         }
 
+        // 2. CEK UANG
         if (GameManager.Instance.statEkonomi >= selectedCard.costEconomy)
         {
             GameManager.Instance.ModifyStats(StatType.Ekonomi, -selectedCard.costEconomy);
             HandManager.Instance.AddCardToHand(selectedCard);
 
             draftingPanel.SetActive(false);
-            Debug.Log($"[DRAFTING] Berhasil membeli {selectedCard.cardName}!");
         }
         else
         {
             Debug.LogWarning("[DRAFTING] Kas Ekonomi tidak cukup!");
+
+            // Panggil Pop-Up dan Suara Error
+            UIManager.Instance.ShowWarning("Uang Kas Tidak Cukup!");
         }
     }
 

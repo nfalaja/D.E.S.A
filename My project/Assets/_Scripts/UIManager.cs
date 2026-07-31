@@ -24,6 +24,18 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI txtGameOverDetails;
     public GameObject papanOBJ; // Panel yang show/hide
 
+    [Header("Warning Pop-Up")]
+    public GameObject warningPanel;
+    public TextMeshProUGUI txtWarning;
+    private Coroutine warningCoroutine;
+
+    private System.Collections.IEnumerator HideWarningRoutine()
+    {
+        // Tampil selama 2 detik
+        yield return new WaitForSeconds(2f);
+        warningPanel.SetActive(false);
+    }
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -108,6 +120,25 @@ public class UIManager : MonoBehaviour
             txtNotification.text = "Kas Desa Menipis!";
         else
             txtNotification.text = "Semua Aman Terkendali.";
+    }
+
+    // --- PROTOKOL POP-UP PERINGATAN ---
+    public void ShowWarning(string pesan)
+    {
+        // Cegat jika UI belum dipasang
+        if (warningPanel == null || txtWarning == null) return;
+
+        txtWarning.text = pesan;
+        warningPanel.SetActive(true);
+
+        // Jika ada peringatan sebelumnya yang masih tampil, hentikan hitungan mundurnya
+        if (warningCoroutine != null)
+        {
+            StopCoroutine(warningCoroutine);
+        }
+
+        // Mulai hitung mundur untuk menyembunyikan panel
+        warningCoroutine = StartCoroutine(HideWarningRoutine());
     }
 
     public void ShowGameOver(int totalDays, int totalStats)
