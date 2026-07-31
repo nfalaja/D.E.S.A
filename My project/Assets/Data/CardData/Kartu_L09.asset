@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Larangan Kantung Plastik
   costEconomy: 10
   durationDays: 4
-  compatibleBuilding: 2
+  compatibleBuilding: 1
   effects:
   - statType: 0
     amount: -15

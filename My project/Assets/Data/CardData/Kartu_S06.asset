@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Operasi Pasar Murah
   costEconomy: 15
   durationDays: 3
-  compatibleBuilding: 2
+  compatibleBuilding: 3
   effects:
   - statType: 0
     amount: -20

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Lomba 17an
   costEconomy: 10
   durationDays: 0
-  compatibleBuilding: 1
+  compatibleBuilding: 3
   effects:
   - statType: 0
     amount: -10

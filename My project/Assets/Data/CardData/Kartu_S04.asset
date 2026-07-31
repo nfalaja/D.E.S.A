@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Festival Panen Raya
   costEconomy: 15
   durationDays: 1
-  compatibleBuilding: 1
+  compatibleBuilding: 2
   effects:
   - statType: 0
     amount: 15
